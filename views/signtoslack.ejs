@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/jquery.js"></script>
+  <script>
+    function signwithslack() {
+      var channelid = $("#slackurl").val();
+
+      var targetUrl = "https://slack.com/oauth/authorize?scope=chat:write:user,users:read&client_id=52448059648.54500781333&redirect_uri=https://slashsf5.azurewebsites.net/slackoauth/signtoslack?channel_id="+channelid
+      $("#a_slack").attr("href", targetUrl)
+    }
+
+  </script>
+</head>
+<body>
+
+<div hidden>
+  <input id="slackurl" type="text" value="<%= slackappend %>" size="50" />
+</div>
+<div style="text-align: center;">
+  <div><img src="img/stoslack.jpg"></div>
+<a id="a_slack" href="" onclick="signwithslack()"><img alt="Sign in with Slack" height="80" width="344" src="img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>
+</div>
+</body>
+</html>
